@@ -7,6 +7,7 @@ signal video_iniciou
 @export var video_container: Control
 @export var video_player: VideoStreamPlayer
 @export var botao_play_pause: TextureButton
+@export var instrucao_video: TextureRect
 
 var textura_play = preload("res://imagens/pagina6/bt_play.png")
 var textura_pause = preload("res://imagens/pagina6/bt_pause.png")

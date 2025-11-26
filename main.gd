@@ -132,10 +132,11 @@ func play_page_sound():
 func _configurar_audio_inicial():
 	bgm_player.stream = musica_fundo
 	bgm_player.volume_db = -23
-	if SoundManager.is_sound_enabled:
-		bgm_player.play()
+	
+	bgm_player.play()
 	
 	_on_sound_state_changed(SoundManager.is_sound_enabled)
+	
 	play_page_sound()
 
 func _atualizar_ui():

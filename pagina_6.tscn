@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://ci5qcu55p1bxm"]
+[gd_scene load_steps=13 format=3 uid="uid://ci5qcu55p1bxm"]
 
 [ext_resource type="Texture2D" uid="uid://deu3htliqjo6c" path="res://imagens/pagina6/pg_bg.png" id="1_eaop4"]
 [ext_resource type="Texture2D" uid="uid://drw6jus0j8ixl" path="res://imagens/pagina6/urna.png" id="2_eaop4"]
 [ext_resource type="Texture2D" uid="uid://yji7s5oy8hb8" path="res://imagens/pagina6/instrucao.png" id="3_odf6h"]
+[ext_resource type="Texture2D" uid="uid://chv7ni7a3dqjq" path="res://imagens/pagina6/instrucao_antes.png" id="4_ckrlt"]
 [ext_resource type="Script" uid="uid://cuqr8hvqr375" path="res://pagina_6.gd" id="5_14mkj"]
 [ext_resource type="VideoStream" uid="uid://b1g11wh7p0euu" path="res://imagens/pagina6/video_o05gx6Ev.ogv" id="5_ckrlt"]
 [ext_resource type="Texture2D" uid="uid://dcguosswfp5qv" path="res://imagens/pagina6/bt_pause.png" id="6_xx3d2"]
@@ -17,7 +18,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bssjn"]
 
-[node name="pagina_6" type="Control" node_paths=PackedStringArray("urna_container", "botao_confirma", "video_container", "video_player", "botao_play_pause")]
+[node name="pagina_6" type="Control" node_paths=PackedStringArray("urna_container", "botao_confirma", "video_container", "video_player", "botao_play_pause", "instrucao_video")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,6 +31,7 @@ botao_confirma = NodePath("UrnaContainer/BotaoConfirma")
 video_container = NodePath("VideoContainer")
 video_player = NodePath("VideoContainer/VideoStreamPlayer")
 botao_play_pause = NodePath("VideoContainer/BotaoPlayPause")
+instrucao_video = NodePath("VideoContainer/InstrucaoVideo")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -38,7 +40,6 @@ offset_bottom = 40.0
 texture = ExtResource("1_eaop4")
 
 [node name="UrnaContainer" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -60,7 +61,7 @@ offset_left = 120.0
 offset_top = 888.0
 offset_right = 650.0
 offset_bottom = 915.0
-texture = ExtResource("3_odf6h")
+texture = ExtResource("4_ckrlt")
 
 [node name="BotaoConfirma" type="Button" parent="UrnaContainer"]
 layout_mode = 0
@@ -94,8 +95,16 @@ expand = true
 
 [node name="BotaoPlayPause" type="TextureButton" parent="VideoContainer"]
 layout_mode = 0
-offset_left = 360.0
-offset_top = 864.0
-offset_right = 410.0
-offset_bottom = 914.0
+offset_left = 359.0
+offset_top = 821.0
+offset_right = 409.0
+offset_bottom = 871.0
 texture_normal = ExtResource("6_xx3d2")
+
+[node name="InstrucaoVideo" type="TextureRect" parent="VideoContainer"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 895.0
+offset_right = 727.2759
+offset_bottom = 926.0
+texture = ExtResource("3_odf6h")

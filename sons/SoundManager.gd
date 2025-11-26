@@ -1,6 +1,6 @@
 extends Node
 
-var is_sound_enabled: bool = true
+var is_sound_enabled: bool = false 
 
 signal sound_state_changed(is_enabled: bool)
 
