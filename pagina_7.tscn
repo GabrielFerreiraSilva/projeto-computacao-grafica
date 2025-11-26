@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://bnjkk1wfqorno"]
+
+[ext_resource type="Script" uid="uid://2jiq5486f8yv" path="res://pagina_7.gd" id="1_ab22p"]
+[ext_resource type="Texture2D" uid="uid://cndydvyfqbd7g" path="res://imagens/pagina7/decreto-assinado.png" id="2_qvpv7"]
+[ext_resource type="Texture2D" uid="uid://dn6s3xlrscu8k" path="res://imagens/pagina7/gb.png" id="3_fl138"]
+[ext_resource type="Texture2D" uid="uid://bjj2jip1gaqwm" path="res://imagens/pagina7/pessoas_sprite.png" id="3_qvpv7"]
+[ext_resource type="Texture2D" uid="uid://350rir5psvac" path="res://imagens/pagina7/decreto-nao-assinado.png" id="4_87b4w"]
+[ext_resource type="Texture2D" uid="uid://ctocnqf2u57q4" path="res://imagens/pagina7/caneta.png" id="5_q61qj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dn5b0"]
+atlas = ExtResource("3_qvpv7")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qs6x"]
+atlas = ExtResource("3_qvpv7")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvp8j"]
+atlas = ExtResource("3_qvpv7")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c38my"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dn5b0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qs6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvp8j")
+}],
+"loop": true,
+"name": &"protesto",
+"speed": 2.5
+}]
+
+[node name="pagina_7" type="Control" node_paths=PackedStringArray("caneta", "decreto", "povo")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ab22p")
+caneta = NodePath("Caneta")
+decreto = NodePath("Decreto")
+povo = NodePath("Povo")
+textura_assinado = ExtResource("2_qvpv7")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_fl138")
+
+[node name="Povo" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(387, 647)
+scale = Vector2(0.5908203, 0.5908203)
+sprite_frames = SubResource("SpriteFrames_c38my")
+animation = &"protesto"
+
+[node name="Decreto" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 406.0
+offset_right = 662.0
+offset_bottom = 940.0
+texture = ExtResource("4_87b4w")
+expand_mode = 1
+
+[node name="Caneta" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.374
+anchor_top = 0.72800004
+anchor_right = 0.374
+anchor_bottom = 0.72800004
+offset_left = -109.231995
+offset_top = -112.472046
+offset_right = 109.768005
+offset_bottom = 112.527954
+texture = ExtResource("5_q61qj")

@@ -1,0 +1,152 @@
+[gd_scene load_steps=18 format=3 uid="uid://duqwm4tloayvj"]
+
+[ext_resource type="Script" uid="uid://th0e8xxeean" path="res://pagina_3.gd" id="1_s3uvt"]
+[ext_resource type="Texture2D" uid="uid://guhpjwbwbn6t" path="res://imagens/pagina3/bg_pg3.png" id="2_i0yql"]
+[ext_resource type="Texture2D" uid="uid://cyxnoyi5lt850" path="res://imagens/pagina3/sprites_truck.png" id="3_jo358"]
+[ext_resource type="Texture2D" uid="uid://b4tp6om8qlgfs" path="res://imagens/pagina3/sprites_cop.png" id="4_8aiv5"]
+[ext_resource type="Texture2D" uid="uid://dabui7qhwwm8i" path="res://imagens/pagina3/estado.png" id="5_kari6"]
+[ext_resource type="Texture2D" uid="uid://cnebklemvs342" path="res://imagens/pagina3/mulher.png" id="6_2m7gb"]
+[ext_resource type="Texture2D" uid="uid://b7oeb6yyno51o" path="res://imagens/pagina3/dinheiro.png" id="7_6t1x2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujxer"]
+atlas = ExtResource("3_jo358")
+region = Rect2(0, 0, 193, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdcd3"]
+atlas = ExtResource("3_jo358")
+region = Rect2(193, 0, 193, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ub0fa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujxer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdcd3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lvar"]
+atlas = ExtResource("4_8aiv5")
+region = Rect2(0, 0, 184, 134)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhnrr"]
+atlas = ExtResource("4_8aiv5")
+region = Rect2(184, 0, 184, 134)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_146l6"]
+atlas = ExtResource("4_8aiv5")
+region = Rect2(368, 0, 184, 134)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ku5d"]
+atlas = ExtResource("4_8aiv5")
+region = Rect2(552, 0, 184, 134)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qrcek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lvar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhnrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_146l6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ku5d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gb6rg"]
+size = Vector2(266, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2oyc"]
+size = Vector2(61.5, 84.75)
+
+[node name="Pagina3" type="Control" node_paths=PackedStringArray("mulher", "dinheiro", "estado", "caminhao_lixo", "policia")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_s3uvt")
+mulher = NodePath("Mulher")
+dinheiro = NodePath("Dinheiro")
+estado = NodePath("Estado")
+caminhao_lixo = NodePath("Veiculos/CaminhaoLixo")
+policia = NodePath("Veiculos/Policia")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_i0yql")
+
+[node name="Veiculos" type="Node2D" parent="."]
+position = Vector2(0, -54)
+
+[node name="CaminhaoLixo" type="AnimatedSprite2D" parent="Veiculos"]
+position = Vector2(654, 856)
+sprite_frames = SubResource("SpriteFrames_ub0fa")
+frame_progress = 0.65404373
+
+[node name="Policia" type="AnimatedSprite2D" parent="Veiculos"]
+position = Vector2(565, 841)
+sprite_frames = SubResource("SpriteFrames_qrcek")
+frame = 2
+frame_progress = 0.30729896
+
+[node name="Estado" type="Area2D" parent="."]
+position = Vector2(626, 801)
+
+[node name="Sprite2D" type="TextureRect" parent="Estado"]
+offset_left = -175.0
+offset_top = -187.0
+offset_right = 139.0
+offset_bottom = 127.0
+texture = ExtResource("5_kari6")
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Estado"]
+position = Vector2(-20, 1)
+shape = SubResource("RectangleShape2D_gb6rg")
+
+[node name="Mulher" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 674.0
+offset_right = 160.0
+offset_bottom = 845.0
+mouse_filter = 2
+texture = ExtResource("6_2m7gb")
+
+[node name="Dinheiro" type="Area2D" parent="."]
+position = Vector2(139, 790)
+
+[node name="Sprite2D" type="TextureRect" parent="Dinheiro"]
+offset_left = -67.0
+offset_top = -46.0
+offset_right = 56.0
+offset_bottom = 77.0
+texture = ExtResource("7_6t1x2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dinheiro"]
+position = Vector2(-3, 12.375)
+shape = SubResource("RectangleShape2D_c2oyc")
+
+[connection signal="input_event" from="Dinheiro" to="." method="_on_dinheiro_input_event"]

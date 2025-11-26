@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://cnhaojeuf7wkf"]
+
+[ext_resource type="Script" uid="uid://b1gjwqmslbtk4" path="res://pagina_2.gd" id="1_bv8da"]
+[ext_resource type="Texture2D" uid="uid://uoywlbwvg5ej" path="res://imagens/pagina2/pg2_bg.png" id="1_ievls"]
+[ext_resource type="Texture2D" uid="uid://cau52tqvoa1gb" path="res://imagens/pagina2/feudo 1.png" id="2_ievls"]
+[ext_resource type="Texture2D" uid="uid://cq265yis32wnw" path="res://imagens/pagina2/feudo 2.png" id="3_bv8da"]
+[ext_resource type="Texture2D" uid="uid://30igoygdmqo7" path="res://imagens/pagina2/feudo 3.png" id="4_e0suv"]
+[ext_resource type="Texture2D" uid="uid://bhnexprne84g1" path="res://imagens/pagina2/feudo 4.png" id="5_6t22d"]
+[ext_resource type="Texture2D" uid="uid://b4a8e4h6xnewc" path="res://imagens/pagina2/feudo 5.png" id="6_njxfd"]
+[ext_resource type="Texture2D" uid="uid://b3ut3uwhflagu" path="res://imagens/pagina2/feudo 6.png" id="7_a34a1"]
+[ext_resource type="Texture2D" uid="uid://qq26tfrnn7gy" path="res://imagens/pagina2/reino_central.png" id="8_bv8da"]
+[ext_resource type="Texture2D" uid="uid://dkvfec3ajgka5" path="res://imagens/pagina2/coroa_final.png" id="9_e0suv"]
+
+[node name="Pagina2" type="Control" node_paths=PackedStringArray("feudos")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_bv8da")
+feudos = [NodePath("Feudos/Feudo1"), NodePath("Feudos/Feudo2"), NodePath("Feudos/Feudo3"), NodePath("Feudos/Feudo4"), NodePath("Feudos/Feudo5"), NodePath("Feudos/Feudo6")]
+posicoes_finais = Array[Vector2]([Vector2(224, 464), Vector2(394, 612), Vector2(219, 559), Vector2(271, 658), Vector2(199, 658), Vector2(223, 567)])
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ievls")
+
+[node name="Feudos" type="Node2D" parent="."]
+
+[node name="Feudo1" type="TextureRect" parent="Feudos"]
+offset_left = 236.0
+offset_top = 424.0
+offset_right = 544.0
+offset_bottom = 732.0
+texture = ExtResource("2_ievls")
+
+[node name="Feudo2" type="TextureRect" parent="Feudos"]
+offset_left = 461.0
+offset_top = 599.0
+offset_right = 571.0
+offset_bottom = 709.0
+texture = ExtResource("3_bv8da")
+
+[node name="Feudo3" type="TextureRect" parent="Feudos"]
+offset_left = 307.0
+offset_top = 599.0
+offset_right = 615.0
+offset_bottom = 907.0
+texture = ExtResource("4_e0suv")
+
+[node name="Feudo4" type="TextureRect" parent="Feudos"]
+offset_left = 285.0
+offset_top = 722.0
+offset_right = 494.0
+offset_bottom = 931.0
+texture = ExtResource("5_6t22d")
+
+[node name="Feudo5" type="TextureRect" parent="Feudos"]
+offset_left = 153.0
+offset_top = 690.0
+offset_right = 349.0
+offset_bottom = 886.0
+texture = ExtResource("6_njxfd")
+
+[node name="Feudo6" type="TextureRect" parent="Feudos"]
+offset_left = 195.0
+offset_top = 531.0
+offset_right = 397.0
+offset_bottom = 733.0
+texture = ExtResource("7_a34a1")
+
+[node name="BotaoCoroaCentral" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 219.0
+offset_top = 553.0
+offset_right = 527.0
+offset_bottom = 861.0
+texture_normal = ExtResource("8_bv8da")
+
+[node name="CoroaFinal" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 204.0
+offset_top = 532.0
+offset_right = 542.0
+offset_bottom = 870.0
+texture = ExtResource("9_e0suv")

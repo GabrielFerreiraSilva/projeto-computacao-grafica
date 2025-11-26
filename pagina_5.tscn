@@ -1,0 +1,123 @@
+[gd_scene load_steps=11 format=3 uid="uid://den1myo623wg1"]
+
+[ext_resource type="Script" uid="uid://ksu8gty3pchr" path="res://pagina_5.gd" id="1_7k73o"]
+[ext_resource type="Texture2D" uid="uid://tfhb5klowfck" path="res://imagens/pagina5/pg5_bg.png" id="1_c7tew"]
+[ext_resource type="Texture2D" uid="uid://ccthpmq5kiljl" path="res://imagens/pagina5/msg_verde.png" id="2_7k73o"]
+[ext_resource type="Texture2D" uid="uid://7x6u4lmf2xnj" path="res://imagens/pagina5/msg_vermelha_executivo.png" id="3_e0f46"]
+[ext_resource type="Texture2D" uid="uid://bjiwpgb5ktukm" path="res://imagens/pagina5/msg_vermelha_legislativo.png" id="4_d3su8"]
+[ext_resource type="Texture2D" uid="uid://crsfk4kt1yvtl" path="res://imagens/pagina5/base_balanca_ot.png" id="6_7k73o"]
+[ext_resource type="Texture2D" uid="uid://cys81jxx62nml" path="res://imagens/pagina5/braco_balanca_ot.png" id="7_e0f46"]
+[ext_resource type="Texture2D" uid="uid://dgeef7cosehtu" path="res://imagens/pagina5/prato_executivo_ot.png" id="8_d3su8"]
+[ext_resource type="Texture2D" uid="uid://i0xrxrh17u1l" path="res://imagens/pagina5/icone_alerta.png" id="9_1ix7s"]
+[ext_resource type="Texture2D" uid="uid://bvfc5227vfhwd" path="res://imagens/pagina5/prato_legislativo_ot.png" id="9_dq61v"]
+
+[node name="pagina_5" type="Control" node_paths=PackedStringArray("pivot_node", "prato_executivo", "prato_legislativo", "alerta_executivo", "alerta_legislativo", "mensagem_verde", "mensagem_vermelha_executivo", "mensagem_vermelha_legislativo")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7k73o")
+pivot_node = NodePath("Balanca/Pivot")
+prato_executivo = NodePath("Balanca/Pivot/PratoExecutivo")
+prato_legislativo = NodePath("Balanca/Pivot/PratoLegislativo")
+alerta_executivo = NodePath("AlertaExecutivo")
+alerta_legislativo = NodePath("AlertaLegislativo")
+mensagem_verde = NodePath("Mensagens/MensagemVerde")
+mensagem_vermelha_executivo = NodePath("Mensagens/MensagemVermelhaExecutivo")
+mensagem_vermelha_legislativo = NodePath("Mensagens/MensagemVermelhaLegislativo")
+limiar_alerta_graus = 10.5
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_c7tew")
+
+[node name="Mensagens" type="Control" parent="."]
+anchors_preset = 0
+offset_top = -51.0
+offset_right = 40.0
+offset_bottom = -11.0
+
+[node name="MensagemVerde" type="TextureRect" parent="Mensagens"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 571.0
+offset_right = 619.0
+offset_bottom = 593.0
+texture = ExtResource("2_7k73o")
+
+[node name="MensagemVermelhaExecutivo" type="TextureRect" parent="Mensagens"]
+visible = false
+layout_mode = 0
+offset_left = 129.0
+offset_top = 569.0
+offset_right = 632.75
+offset_bottom = 594.0
+texture = ExtResource("3_e0f46")
+
+[node name="MensagemVermelhaLegislativo" type="TextureRect" parent="Mensagens"]
+visible = false
+layout_mode = 0
+offset_left = 127.0
+offset_top = 572.0
+offset_right = 636.6471
+offset_bottom = 591.0
+texture = ExtResource("4_d3su8")
+
+[node name="Balanca" type="Node2D" parent="."]
+position = Vector2(0, -51)
+
+[node name="Base" type="TextureRect" parent="Balanca"]
+offset_left = 303.0
+offset_top = 616.0
+offset_right = 459.0
+offset_bottom = 899.0
+texture = ExtResource("6_7k73o")
+
+[node name="Pivot" type="Node2D" parent="Balanca"]
+position = Vector2(382, 655)
+
+[node name="Braco" type="TextureRect" parent="Balanca/Pivot"]
+offset_left = -133.0
+offset_top = -23.0
+offset_right = 135.0
+offset_bottom = 23.0
+texture = ExtResource("7_e0f46")
+
+[node name="PratoExecutivo" type="TextureRect" parent="Balanca/Pivot"]
+offset_left = -188.0
+offset_top = 9.0
+offset_right = -52.0
+offset_bottom = 181.0
+pivot_offset = Vector2(68, 0)
+texture = ExtResource("8_d3su8")
+
+[node name="PratoLegislativo" type="TextureRect" parent="Balanca/Pivot"]
+offset_left = 53.0
+offset_top = 9.0
+offset_right = 191.0
+offset_bottom = 182.0
+pivot_offset = Vector2(68, 0)
+texture = ExtResource("9_dq61v")
+
+[node name="AlertaExecutivo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 621.0
+offset_right = 155.0
+offset_bottom = 669.0
+texture = ExtResource("9_1ix7s")
+
+[node name="AlertaLegislativo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 626.0
+offset_top = 618.0
+offset_right = 674.0
+offset_bottom = 666.0
+texture = ExtResource("9_1ix7s")

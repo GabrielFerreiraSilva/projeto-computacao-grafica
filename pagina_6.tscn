@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://ci5qcu55p1bxm"]
+
+[ext_resource type="Texture2D" uid="uid://deu3htliqjo6c" path="res://imagens/pagina6/pg_bg.png" id="1_eaop4"]
+[ext_resource type="Texture2D" uid="uid://drw6jus0j8ixl" path="res://imagens/pagina6/urna.png" id="2_eaop4"]
+[ext_resource type="Texture2D" uid="uid://yji7s5oy8hb8" path="res://imagens/pagina6/instrucao.png" id="3_odf6h"]
+[ext_resource type="Script" uid="uid://cuqr8hvqr375" path="res://pagina_6.gd" id="5_14mkj"]
+[ext_resource type="VideoStream" uid="uid://b1g11wh7p0euu" path="res://imagens/pagina6/video_o05gx6Ev.ogv" id="5_ckrlt"]
+[ext_resource type="Texture2D" uid="uid://dcguosswfp5qv" path="res://imagens/pagina6/bt_pause.png" id="6_xx3d2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bblir"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ckrlt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_14mkj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xx3d2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bssjn"]
+
+[node name="pagina_6" type="Control" node_paths=PackedStringArray("urna_container", "botao_confirma", "video_container", "video_player", "botao_play_pause")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_14mkj")
+urna_container = NodePath("UrnaContainer")
+botao_confirma = NodePath("UrnaContainer/BotaoConfirma")
+video_container = NodePath("VideoContainer")
+video_player = NodePath("VideoContainer/VideoStreamPlayer")
+botao_play_pause = NodePath("VideoContainer/BotaoPlayPause")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_eaop4")
+
+[node name="UrnaContainer" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Urna" type="TextureRect" parent="UrnaContainer"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 448.0
+offset_right = 576.0
+offset_bottom = 848.0
+texture = ExtResource("2_eaop4")
+
+[node name="Instrucao" type="TextureRect" parent="UrnaContainer"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 888.0
+offset_right = 650.0
+offset_bottom = 915.0
+texture = ExtResource("3_odf6h")
+
+[node name="BotaoConfirma" type="Button" parent="UrnaContainer"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 679.0
+offset_right = 534.0
+offset_bottom = 751.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bblir")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ckrlt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_14mkj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xx3d2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bssjn")
+
+[node name="VideoContainer" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="VideoContainer"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 427.0
+offset_right = 713.0
+offset_bottom = 766.0
+stream = ExtResource("5_ckrlt")
+expand = true
+
+[node name="BotaoPlayPause" type="TextureButton" parent="VideoContainer"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 864.0
+offset_right = 410.0
+offset_bottom = 914.0
+texture_normal = ExtResource("6_xx3d2")

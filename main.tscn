@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3lbuwq5yah5l"]
+
+[ext_resource type="Script" uid="uid://dlapc3miuyojo" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://bkmharom08efb" path="res://imagens/Contracapa.png" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://c8cy5nfhg3dap" path="res://assets/estado=ativado.png" id="3_h2yge"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0xm2m")
+
+[node name="PageContainer" type="Control" parent="."]
+clip_contents = true
+anchors_preset = 0
+offset_right = 768.0
+offset_bottom = 1024.0
+
+[node name="PageDisplayA" type="TextureRect" parent="PageContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0xm2m")
+
+[node name="BotaoSomA" type="TextureButton" parent="PageContainer/PageDisplayA"]
+layout_mode = 0
+offset_left = 652.0
+offset_top = 18.0
+offset_right = 752.0
+offset_bottom = 58.0
+texture_normal = ExtResource("3_h2yge")
+
+[node name="PageDisplayB" type="TextureRect" parent="PageContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0xm2m")
+
+[node name="BotaoSomB" type="TextureButton" parent="PageContainer/PageDisplayB"]
+layout_mode = 0
+offset_left = 652.0
+offset_top = 18.0
+offset_right = 752.0
+offset_bottom = 58.0
+texture_normal = ExtResource("3_h2yge")
+
+[node name="BotaoNext" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 630.0
+offset_top = 947.0
+offset_right = 735.0
+offset_bottom = 997.0
+
+[node name="BotaoPrevious" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 36.0
+offset_top = 947.0
+offset_right = 141.0
+offset_bottom = 997.0
+
+[node name="BotaoInicio" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 333.0
+offset_top = 947.0
+offset_right = 488.0
+offset_bottom = 997.0
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="BotaoNext" to="." method="_on_botao_next_pressed"]
+[connection signal="pressed" from="BotaoPrevious" to="." method="_on_botao_previous_pressed"]
+[connection signal="pressed" from="BotaoInicio" to="." method="_on_botao_inicio_pressed"]
